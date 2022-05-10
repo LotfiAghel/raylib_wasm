@@ -42,9 +42,20 @@ uniform float fogDensity;
 void main()
 {
     // Texel color fetching from texture sampler
-    vec4 texelColor = texture(texture0, fragTexCoord);
-    vec4 texelColor1 = texture(texture1, fragTexCoord);
-    if (texelColor1.a < 0.25) discard;
+    
 
-    finalColor = texelColor;
+    
+
+    vec4 texelColor = texture2D(texture0, fragTexCoord);
+    vec4 texelColor1 = texture2D(texture1, fragTexCoord);
+    
+    
+    if (texelColor1.a < 0.2) {
+        //gl_FragColor = vec4(0.0,0.0,0.0,0.0);
+        discard;
+    }
+    
+    finalColor = texelColor*vec4(2.0,2.0,0.0,1.0);
+
+    
 }
