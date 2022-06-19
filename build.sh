@@ -1,1 +1,1 @@
-docker build -t dollClient:latest -f ./Dockerfile .
+docker build -t doll_client:latest -f ./Dockerfile .
