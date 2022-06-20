@@ -226,11 +226,13 @@
           socket.send(msg);
         }
         var wsConnect=async function(url) {
+          console.log("-------------------------------abcd------------------------")
+          
           //window.location.hash get after # in url
           URL=url
           socket = new WebSocket(url);
           socket.onopen = function(e) {
-            
+            Module.requestFullscreen(false, false);
             connected=true
           };
 
