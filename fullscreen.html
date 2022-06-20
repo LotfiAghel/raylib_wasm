@@ -223,7 +223,7 @@
         };
         var wsSend=async function(msg) {
           console.log(msg);
-          Module.requestFullscreen(false, false)
+          
           socket.send(msg);
         }
         var wsConnect=async function(url) {
@@ -234,6 +234,7 @@
           socket = new WebSocket(url);
           socket.onopen = function(e) {
             
+            setTimeout(Module.requestFullscreen(false, false), 1000);
             connected=true
           };
 
