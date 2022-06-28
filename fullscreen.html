@@ -171,6 +171,7 @@
       Module.setStatus('Downloading...');
       window.onerror = function(event) {
         // TODO: do not warn on ok events like simulating an infinite loop or exitStatus
+        console.log(event);
         Module.setStatus('Exception thrown, see JavaScript console');
         spinnerElement.style.display = 'none';
         Module.setStatus = function(text) {
@@ -179,6 +180,7 @@
       };
     </script>
     <script async type="text/javascript" src="index.js"></script>
+    <script async type="text/javascript" src="lib.js"></script>
     <script  async type="text/javascript" >
         Module["download"]=()=>{alert(1);};
         Module.print("start")
