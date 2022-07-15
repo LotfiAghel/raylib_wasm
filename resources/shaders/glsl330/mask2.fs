@@ -55,7 +55,8 @@ void main()
         discard;
     }
     
-    finalColor = texelColor*texelColor1*vec4(2.0,2.0,0.0,1.0);
+    //finalColor = texelColor*texelColor1*vec4(2.0,2.0,0.0,1.0);
+    finalColor = texelColor*texelColor1;
 
     
 }

@@ -28,7 +28,10 @@ void main()
         discard;
     }
     
-    gl_FragColor = texelColor*vec4(2.0,2.0,0.0,1.0);
+    
+    gl_FragColor = texelColor*texelColor1*vec4(2.0,2.0,0.0,1.0);
+
+    //gl_FragColor = texelColor*vec4(2.0,2.0,0.0,1.0);
         
     
 }
