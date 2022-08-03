@@ -8126,6 +8126,10 @@ function GetCanvasWidth(){ return canvas.clientWidth; }
 
   function _glGenerateMipmap(x0) { GLctx['generateMipmap'](x0) }
 
+  function _glGetActiveUniform(program, index, bufSize, length, size, type, name) {
+      __glGetActiveAttribOrUniform('getActiveUniform', program, index, bufSize, length, size, type, name);
+    }
+
   function _glGetAttribLocation(program, name) {
       return GLctx.getAttribLocation(GL.programs[program], UTF8ToString(name));
     }
@@ -9955,6 +9959,7 @@ var asmLibraryArg = {
   "glGenBuffers": _glGenBuffers,
   "glGenTextures": _glGenTextures,
   "glGenerateMipmap": _glGenerateMipmap,
+  "glGetActiveUniform": _glGetActiveUniform,
   "glGetAttribLocation": _glGetAttribLocation,
   "glGetFloatv": _glGetFloatv,
   "glGetProgramInfoLog": _glGetProgramInfoLog,
