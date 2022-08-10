@@ -1,1 +1,0 @@
-docker build -t doll_client:latest -f ./Dockerfile .
