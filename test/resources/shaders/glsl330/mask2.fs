@@ -50,7 +50,7 @@ void main()
     vec4 texelColor1 = texture2D(texture1, fragTexCoord);
     
     
-    if (texelColor1.a < 0.2) {
+    if (texelColor1.a < 0.002) {
         //gl_FragColor = vec4(0.0,0.0,0.0,0.0);
         discard;
     }
