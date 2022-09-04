@@ -171,7 +171,7 @@
       postRun: [],
       print: console.log,
       canvas: (function () {
-        var canvas = document.getElementById('canvas');
+        canvas = document.getElementById('canvas');
 
         // As a default initial behavior, pop up an alert when webgl context is lost. To make your
         // application robust, you may want to override this behavior before shipping!
@@ -198,7 +198,10 @@
           progressElement.value = null;
           progressElement.max = null;
           progressElement.hidden = true;
-          if (!text) spinnerElement.style.display = 'none';
+          if (!text) {
+            spinnerElement.style.display = 'none';
+            statusElement.style.display = 'none';
+          }
         }
         statusElement.innerHTML = text;
       },
@@ -214,6 +217,8 @@
       console.log(event);
       Module.setStatus(event);
       spinnerElement.style.display = 'none';
+      statusElement.style.display = 'none';
+      
       Module.setStatus = function (text) {
         if (text) console.error('[post-exception status] ' + text);
         Module.setStatus(text);
@@ -223,7 +228,23 @@
   <script async type="text/javascript" src="index.js"></script>
   <script async type="text/javascript" src="lib.js"></script>
   <script async type="text/javascript">
+    const defWidth = 1012;
+    const defHeight = 720;
 
+    function resizeEventHandler(){
+      // get the max size that fits both width and height by finding the min scale
+      var canvasScale = Math.min(innerWidth / defWidth, innerHeight / defHeight);
+      // or for max size that fills
+      // canvasScale = Math.max(innerWidth / defWidth, innerHeight / defHeight);
+  
+      // now set canvas size and resolution to the new scale
+      //canvas.style.width = (canvas.width = Math.floor(defWidth * canvasScale)) + "px";
+      canvas.style.width = (Math.floor(defWidth * canvasScale)) + "px";
+      canvas.style.height = (Math.floor(defHeight * canvasScale)) + "px";
+  }
+  setTimeout(resizeEventHandler,1000);
+  resizeEventHandler();
+  window.addEventListener("resize", resizeEventHandler);
 
     wsConnect = async function (url) {
 
