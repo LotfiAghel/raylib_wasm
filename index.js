@@ -1508,7 +1508,8 @@ function createExportWrapper(name, fixedasm) {
 }
 
 var wasmBinaryFile;
-  wasmBinaryFile = 'index.wasm';
+  var currentDate = (new Date()).getTime();  
+  wasmBinaryFile = 'index.wasm?'+currentDate;
   if (!isDataURI(wasmBinaryFile)) {
     wasmBinaryFile = locateFile(wasmBinaryFile);
   }
