@@ -257,6 +257,10 @@
       socket.onopen = function (e) {
 
         connected = true
+
+        var a=window.location.hash;
+        var ptr = allocate(intArrayFromString(a), ALLOC_NORMAL);
+        Module['asm']["setMatchId"](ptr)
       };
 
       socket.onmessage = function (event) {
