@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag doll_client:latest
     - name: set tag
-      run: docker image tag doll-game-server:latest ghcr.io/lotfiaghel/doll_client:latest
+      run: docker image tag doll_client:latest ghcr.io/lotfiaghel/doll_client:latest
     - name: push image
       run: docker image push ghcr.io/lotfiaghel/doll_client:latest
       
