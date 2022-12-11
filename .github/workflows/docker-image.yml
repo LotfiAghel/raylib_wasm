@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag doll_client:latest
+      run: docker build . --file Dockerfile --tag doll-game-client:latest
     - name: Login to Docker Hub
       uses: docker/login-action@v2
       with:
@@ -23,7 +23,7 @@ jobs:
         username:  ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: set tag
-      run: docker image tag doll_client:latest ghcr.io/lotfiaghel/doll_client:latest
+      run: docker image tag doll-game-client:latest ghcr.io/lotfiaghel/doll-game-client:latest
     - name: push image
-      run: docker image push ghcr.io/lotfiaghel/doll_client:latest
+      run: docker image push ghcr.io/lotfiaghel/doll-game-client:latest
       
